@@ -9,7 +9,10 @@ type Product = {
   id: number;
   name: string;
   price: number;
+  oldPrice?: number;
+  rating?: number;
   image: string;
+  category?: string;
 };
 
 export default function AddToCartButton({
