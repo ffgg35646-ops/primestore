@@ -9,10 +9,10 @@ type Product = {
   id: number;
   name: string;
   price: number;
-  oldPrice?: number;
-  rating?: number;
+  oldPrice: number;
+  rating: number;
   image: string;
-  category?: string;
+  category: string;
 };
 
 export default function AddToCartButton({
@@ -25,6 +25,7 @@ export default function AddToCartButton({
 
   const { addToCart } = useCart();
 
+
   async function handleAddToCart() {
 
     const res = await fetch(
@@ -33,6 +34,7 @@ export default function AddToCartButton({
         cache: "no-store",
       }
     );
+
 
     if (!res.ok) {
 
@@ -44,17 +46,19 @@ export default function AddToCartButton({
 
     }
 
+
     addToCart(product);
 
     alert("Product added to cart");
 
   }
 
+
   return (
 
     <button
       onClick={handleAddToCart}
-      className="mt-8 flex w-full items-center justify-center gap-2 rounded-2xl bg-blue-600 py-4 text-lg font-bold text-white hover:bg-blue-700"
+      className="mt-8 flex w-full items-center justify-center gap-2 rounded-2xl bg-blue-600 py-4 text-lg font-bold text-white transition hover:bg-blue-700"
     >
 
       <ShoppingCart size={22} />
